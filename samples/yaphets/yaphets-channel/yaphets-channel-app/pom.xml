@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>yaphets-channel</artifactId>
+        <groupId>com.appril.yaphets</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>yaphets-channel-app</artifactId>
+    <version>${env}-${yaphets-channel.version}</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.appril.yaphets</groupId>
+            <artifactId>yaphets-channel-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.appril.yaphets</groupId>
+            <artifactId>yaphets-channel-infrastructure</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

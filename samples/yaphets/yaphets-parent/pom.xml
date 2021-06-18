@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.appril.yaphets</groupId>
+    <artifactId>yaphets-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <mybatis-starter.version>1.3.1</mybatis-starter.version>
+        <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
+        <cola.components.version>1.0.1-SNAPSHOT</cola.components.version>
+        <fastjson.version>1.2.62</fastjson.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.4.0</mybatis-plus-generator.version>
+        <mysql.version>8.0.11</mysql.version>
+        <druid.version>1.1.22</druid.version>
+        <freemarker.version>2.3.30</freemarker.version>
+        <hutool.version>5.4.3</hutool.version>
+        <yaphets-base.version>1.0.0-SNAPSHOT</yaphets-base.version>
+        <yaphets-channel.version>1.0.0-SNAPSHOT</yaphets-channel.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!--Spring Boot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-starter.version}</version>
+            </dependency>
+            <!--Spring Boot End-->
+            <!--Framework-->
+            <dependency>
+                <groupId>com.appril.cola</groupId>
+                <artifactId>cola-component-domain-starter</artifactId>
+                <version>${cola.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.cola</groupId>
+                <artifactId>cola-component-exception</artifactId>
+                <version>${cola.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.cola</groupId>
+                <artifactId>cola-component-dto</artifactId>
+                <version>${cola.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.cola</groupId>
+                <artifactId>cola-component-catchlog-starter</artifactId>
+                <version>${cola.components.version}</version>
+            </dependency>
+            <!--Framework End-->
+            <!--Project modules-->
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-base-adaptor</artifactId>
+                <version>${env}-${yaphets-base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-base-app</artifactId>
+                <version>${env}-${yaphets-base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-base-client</artifactId>
+                <version>${env}-${yaphets-base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-base-domain</artifactId>
+                <version>${env}-${yaphets-base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-base-infrastructure</artifactId>
+                <version>${env}-${yaphets-base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-channel-adaptor</artifactId>
+                <version>${env}-${yaphets-channel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-channel-app</artifactId>
+                <version>${env}-${yaphets-channel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-channel-client</artifactId>
+                <version>${env}-${yaphets-channel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-channel-domain</artifactId>
+                <version>${env}-${yaphets-channel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.appril.yaphets</groupId>
+                <artifactId>yaphets-channel-infrastructure</artifactId>
+                <version>${env}-${yaphets-channel.version}</version>
+            </dependency>
+            <!--Project modules End-->
+            <!-- Misc -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--mybatis-plus 代码生成器-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <!--hutool工具包 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- Misc End -->
+        </dependencies>
+    </dependencyManagement>
+    <!-- 全局属性配置 -->
+    <profiles>
+        <!-- 开发环境 -->
+        <profile>
+            <id>main</id>
+            <properties>
+                <!-- 部署环境(对应配置文件版本) -->
+                <env>main</env>
+                <var>main</var>
+                <outerDependencyEnv>main</outerDependencyEnv>
+                <maven.test.skip>false</maven.test.skip>
+            </properties>
+            <!-- 设置默认环境 -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <!-- 测试环境  -->
+        <profile>
+            <id>test</id>
+            <properties>
+                <!-- 部署环境(对应配置文件版本) -->
+                <env>test</env>
+                <var>test</var>
+                <outerDependencyEnv>test</outerDependencyEnv>
+            </properties>
+        </profile>
+        <!-- 集成测试环境  -->
+        <profile>
+            <id>sit</id>
+            <properties>
+                <!-- 部署环境(对应配置文件版本) -->
+                <env>sit</env>
+                <var>sit</var>
+                <outerDependencyEnv>sit</outerDependencyEnv>
+            </properties>
+        </profile>
+        <!-- 用户检验测试环境  -->
+        <profile>
+            <id>uat</id>
+            <properties>
+                <!-- 部署环境(对应配置文件版本) -->
+                <env>uat</env>
+                <var>uat</var>
+                <outerDependencyEnv>uat</outerDependencyEnv>
+            </properties>
+        </profile>
+        <!-- 准生产  -->
+        <profile>
+            <id>pre</id>
+            <properties>
+                <!-- 部署环境(对应配置文件版本) -->
+                <env>pre</env>
+                <var>pre</var>
+                <outerDependencyEnv>pre</outerDependencyEnv>
+            </properties>
+        </profile>
+        <!-- 正式环境  -->
+        <profile>
+            <id>prod</id>
+            <properties>
+                <!-- 部署环境(对应配置文件版本) -->
+                <env>prod</env>
+                <var>prod</var>
+                <outerDependencyEnv>prodnew</outerDependencyEnv>
+            </properties>
+        </profile>
+    </profiles>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
