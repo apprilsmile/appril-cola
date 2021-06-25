@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.appril.leads.mapper.CrmCreditLeadsFollowMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.appril.leads.entity.CrmCreditLeadsFollow">
+        <id column="id" property="id" />
+        <result column="global_id" property="globalId" />
+        <result column="credit_leads_global_id" property="creditLeadsGlobalId" />
+        <result column="mode" property="mode" />
+        <result column="purpose" property="purpose" />
+        <result column="unapproved_reason" property="unapprovedReason" />
+        <result column="remark" property="remark" />
+        <result column="deleted" property="deleted" />
+        <result column="version" property="version" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="creation_time" property="creationTime" />
+        <result column="modified_time" property="modifiedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, global_id, credit_leads_global_id, mode, purpose, unapproved_reason, remark, deleted, version, creator, modifier, creation_time, modified_time
+    </sql>
+
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.appril.channel.mapper.CrmChannelInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.appril.channel.entity.CrmChannelInfo">
+        <id column="id" property="id" />
+        <result column="global_id" property="globalId" />
+        <result column="channel_name" property="channelName" />
+        <result column="short_name" property="shortName" />
+        <result column="mode_type" property="modeType" />
+        <result column="tag_type" property="tagType" />
+        <result column="business_scope" property="businessScope" />
+        <result column="province_code" property="provinceCode" />
+        <result column="city_code" property="cityCode" />
+        <result column="address" property="address" />
+        <result column="risk_info" property="riskInfo" />
+        <result column="registered" property="registered" />
+        <result column="status" property="status" />
+        <result column="extend" property="extend" />
+        <result column="version" property="version" />
+        <result column="credit_code" property="creditCode" />
+        <result column="esdate" property="esdate" />
+        <result column="deleted" property="deleted" />
+        <result column="spl_id" property="splId" />
+        <result column="lnk_comp_id" property="lnkCompId" />
+        <result column="supp_lnk_prj_typ_cd" property="suppLnkPrjTypCd" />
+        <result column="source_type" property="sourceType" />
+        <result column="creator" property="creator" />
+        <result column="creation_time" property="creationTime" />
+        <result column="modifier" property="modifier" />
+        <result column="modified_time" property="modifiedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, global_id, channel_name, short_name, mode_type, tag_type, business_scope, province_code, city_code, address, risk_info, registered, status, extend, version, credit_code, esdate, deleted,spl_id,lnk_comp_id,supp_lnk_prj_typ_cd, source_type, creator, creation_time, modifier, modified_time
+    </sql>
+
+</mapper>

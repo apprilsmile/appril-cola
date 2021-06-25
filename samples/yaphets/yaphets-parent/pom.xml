@@ -20,8 +20,11 @@
         <druid.version>1.1.22</druid.version>
         <freemarker.version>2.3.30</freemarker.version>
         <hutool.version>5.4.3</hutool.version>
-        <yaphets-base.version>1.0.0-SNAPSHOT</yaphets-base.version>
+        <yaphets-leads.version>1.0.0-SNAPSHOT</yaphets-leads.version>
         <yaphets-channel.version>1.0.0-SNAPSHOT</yaphets-channel.version>
+        <lombok.version>1.18.20</lombok.version>
+        <mapstruct.version>1.2.0.Final</mapstruct.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -64,28 +67,28 @@
             <!--Project modules-->
             <dependency>
                 <groupId>com.appril.yaphets</groupId>
-                <artifactId>yaphets-base-adaptor</artifactId>
-                <version>${env}-${yaphets-base.version}</version>
+                <artifactId>yaphets-leads-adaptor</artifactId>
+                <version>${env}-${yaphets-leads.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.appril.yaphets</groupId>
-                <artifactId>yaphets-base-app</artifactId>
-                <version>${env}-${yaphets-base.version}</version>
+                <artifactId>yaphets-leads-app</artifactId>
+                <version>${env}-${yaphets-leads.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.appril.yaphets</groupId>
-                <artifactId>yaphets-base-client</artifactId>
-                <version>${env}-${yaphets-base.version}</version>
+                <artifactId>yaphets-leads-client</artifactId>
+                <version>${env}-${yaphets-leads.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.appril.yaphets</groupId>
-                <artifactId>yaphets-base-domain</artifactId>
-                <version>${env}-${yaphets-base.version}</version>
+                <artifactId>yaphets-leads-domain</artifactId>
+                <version>${env}-${yaphets-leads.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.appril.yaphets</groupId>
-                <artifactId>yaphets-base-infrastructure</artifactId>
-                <version>${env}-${yaphets-base.version}</version>
+                <artifactId>yaphets-leads-infrastructure</artifactId>
+                <version>${env}-${yaphets-leads.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.appril.yaphets</groupId>
@@ -150,6 +153,26 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation-api.version}</version>
             </dependency>
             <!-- Misc End -->
         </dependencies>

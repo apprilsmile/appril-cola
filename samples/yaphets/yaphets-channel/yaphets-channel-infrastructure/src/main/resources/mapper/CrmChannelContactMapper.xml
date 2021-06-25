@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.appril.channel.mapper.CrmChannelContactMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.appril.channel.entity.CrmChannelContact">
+        <id column="id" property="id"/>
+        <result column="global_id" property="globalId"/>
+        <result column="channel_global_id" property="channelGlobalId"/>
+        <result column="name" property="name"/>
+        <result column="phone" property="phone"/>
+        <result column="headship" property="headship"/>
+        <result column="remark" property="remark"/>
+        <result column="business" property="business"/>
+        <result column="version" property="version"/>
+        <result column="deleted" property="deleted"/>
+        <result column="creator" property="creator"/>
+        <result column="creation_time" property="creationTime"/>
+        <result column="modifier" property="modifier"/>
+        <result column="modified_time" property="modifiedTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, global_id, channel_global_id, name, phone, headship, remark, business, version, deleted, creator, creation_time, modifier, modified_time
+    </sql>
+
+
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.appril.leads.mapper.CrmCreditLeadsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.appril.leads.entity.CrmCreditLeads">
+        <id column="id" property="id" />
+        <result column="global_id" property="globalId" />
+        <result column="origin_id" property="originId" />
+        <result column="user_no" property="userNo" />
+        <result column="user_name" property="userName" />
+        <result column="org_id" property="orgId" />
+        <result column="customer_name" property="customerName" />
+        <result column="customer_phone" property="customerPhone" />
+        <result column="spl_name" property="splName" />
+        <result column="spl_phone" property="splPhone" />
+        <result column="credit_grade" property="creditGrade" />
+        <result column="query_time" property="queryTime" />
+        <result column="status" property="status" />
+        <result column="lose_record" property="loseRecord" />
+        <result column="deleted" property="deleted" />
+        <result column="version" property="version" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="creation_time" property="creationTime" />
+        <result column="modified_time" property="modifiedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, global_id, origin_id, user_no, user_name, org_id, customer_name, customer_phone, spl_name, spl_phone, credit_grade, query_time, status, lose_record, deleted, version, creator, modifier, creation_time, modified_time
+    </sql>
+
+
+</mapper>
