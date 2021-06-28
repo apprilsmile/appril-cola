@@ -80,7 +80,7 @@ public class CreditLeadsEntity extends Entity<Long> {
     /**
      * 输单记录（json）
      */
-    private LostRecord loseRecord;
+//    private LostRecord loseRecord;
 
     /**
      * 跟进记录

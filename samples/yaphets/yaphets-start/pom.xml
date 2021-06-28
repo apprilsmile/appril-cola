@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.appril.yaphets</groupId>
-            <artifactId>yaphets-base-adaptor</artifactId>
+            <artifactId>yaphets-leads-adaptor</artifactId>
         </dependency>
         <dependency>
             <groupId>com.appril.yaphets</groupId>

@@ -1,16 +1,16 @@
 package com.appril.channel.model;
 
 
+import com.appril.channel.enums.RegisteredEnum;
 import com.appril.channel.repository.ChannelRepository;
 import com.appril.channel.vo.ChannelAddress;
 import com.appril.channel.vo.ChannelTagType;
-import com.appril.channel.vo.ContactsInfo;
+import com.appril.channel.vo.ContactInfo;
 import com.appril.cola.domain.ApplicationContextHelper;
 import com.appril.cola.domain.model.Entity;
 import com.appril.cola.domain.repository.DataRepository;
 import lombok.Data;
 
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -24,6 +24,10 @@ public class ChannelEntity extends Entity<Long> {
      */
     private String shortName;
 
+    /**
+     * 备案状态：0否，1是
+     */
+    private RegisteredEnum registered;
 
     /**
      * 渠道类型标签 [{code, name,sub_type:{code, name}},{code,name,sub_type:{code, name}},{code,name,sub_type:{code, name}}]
@@ -38,26 +42,22 @@ public class ChannelEntity extends Entity<Long> {
     /**
      * 渠道联系人集合
      */
-    private List<ContactsInfo> contactsInfos;
+    private List<ContactInfo> contactInfos;
 
-    /**
-     * 当前操作日期
-     */
-    private Date currentDate;
 
     /**
      * 统一社会信用代码
      */
     private String creditCode;
 
-    /**
-     * 注册日期（成立日期）
-     */
-    private String esdate;
-
 
     @Override
     protected DataRepository getRepository() {
         return ApplicationContextHelper.getBean(ChannelRepository.class);
+    }
+
+    public List<ContactInfo> acquireContacts() {
+        ChannelRepository repository = (ChannelRepository) getRepository();
+        return repository.acquireContacts(globalId);
     }
 }

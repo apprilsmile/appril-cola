@@ -4,15 +4,24 @@ package com.appril.channel.vo;
 import com.appril.cola.domain.valueobj.ValueObject;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
- * 联系人值对象
+ * 联系人
  *
- * @author chenyu.yang
- * @date 2021/4/14 20:12
+ * @author appril
+ * @date 2021/6/28 20:12
  */
 
 @Data
-public class ContactsInfo extends ValueObject<String> {
+public class ContactVo implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 全局id
+     */
+    private String globalId;
 
     /**
      * 联系人姓名
@@ -25,16 +34,7 @@ public class ContactsInfo extends ValueObject<String> {
     /**
      * 联系人职位
      */
-    private String position;
-    /**
-     * 编号，备用
-     */
-    private Long contractNo;
-
-    /**
-     * 渠道id
-     */
-    private Long channelId;
+    private String headship;
     /**
      * 备注
      */

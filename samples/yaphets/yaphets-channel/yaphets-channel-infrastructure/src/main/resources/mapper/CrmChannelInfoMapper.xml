@@ -37,4 +37,19 @@
         id, global_id, channel_name, short_name, mode_type, tag_type, business_scope, province_code, city_code, address, risk_info, registered, status, extend, version, credit_code, esdate, deleted,spl_id,lnk_comp_id,supp_lnk_prj_typ_cd, source_type, creator, creation_time, modifier, modified_time
     </sql>
 
+    <select id="selectPageList" resultMap="BaseResultMap">
+        select
+        global_id,channel_name,province_code,city_code,tag_type,registered,address
+        from crm_channel_info
+        <where>
+            deleted = 0
+            <if test="condition.channelName!=null and condition.channelName!=''"> and channel_name like concat('%', #{condition.channelName},'%') </if>
+            <if test="condition.provinceCode!=null and condition.provinceCode!=''"> and province_code = #{condition.provinceCode}</if>
+            <if test="condition.cityCode!=null and condition.cityCode!=''"> and city_code = #{condition.cityCode}</if>
+            <if test="condition.registered!=null and condition.registered!=''"> and registered = #{condition.registered}</if>
+            <if test="condition.channelType!=null and condition.channelType!=''"> and tag_type regexp ${condition.channelType} </if>
+        </where>
+        order by creation_time desc
+    </select>
+
 </mapper>
