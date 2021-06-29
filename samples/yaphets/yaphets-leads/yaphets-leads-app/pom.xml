@@ -18,6 +18,10 @@
             <groupId>com.appril.yaphets</groupId>
             <artifactId>yaphets-leads-infrastructure</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.appril.yaphets</groupId>
+            <artifactId>yaphets-channel-client</artifactId>
+        </dependency>
     </dependencies>
 
 

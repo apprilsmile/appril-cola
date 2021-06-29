@@ -1,37 +1,27 @@
-package com.appril.leads.vo.comand;
+package com.appril.leads.vo;
 
-
-import com.appril.cola.dto.Command;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
- * @author zy
- * @create 2021-06-10
+ * @author appril
+ * @date 2021/6/29 10:09
  */
 @Data
-public class CreateCreditLeadsCmd extends Command {
+public class CreditLeadsDetailVo {
 
     /**
-     * 来源数据id
+     * 全局id
      */
-    private String originId;
-
-    /**
-     * 客户经理工号
-     */
-    private String userNo;
+    private String globalId;
 
     /**
      * 客户经理姓名
      */
     private String userName;
 
-    /**
-     * 客户经理组织机构id
-     */
-    private Long orgId;
 
     /**
      * 客户姓名
@@ -49,9 +39,14 @@ public class CreateCreditLeadsCmd extends Command {
     private String splName;
 
     /**
-     * 经销商电话
+     * 经销商地址
      */
-    private String splPhone;
+    private String splAddress;
+
+    /**
+     * 经销商渠道类型
+     */
+    private List<String> splTagTypes;
 
     /**
      * 狮桥分等级
@@ -61,16 +56,14 @@ public class CreateCreditLeadsCmd extends Command {
     /**
      * 狮桥分查询时间
      */
-    private Date queryTime;
+    private String queryTime;
 
     /**
      * 商机阶段（1：未跟进，2：跟进中，3：赢单，4：输单）
      */
-    private Integer status;
-
+    private String status;
     /**
-     * 输单记录（json）
+     * 跟进记录
      */
-    private String loseRecord;
-
-}
+    private List<FollowDetail> follows;
+ }

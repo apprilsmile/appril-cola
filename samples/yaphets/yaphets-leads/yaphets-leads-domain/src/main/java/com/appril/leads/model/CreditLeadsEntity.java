@@ -3,6 +3,7 @@ package com.appril.leads.model;
 import com.appril.cola.domain.ApplicationContextHelper;
 import com.appril.cola.domain.model.Entity;
 import com.appril.cola.domain.repository.DataRepository;
+import com.appril.leads.enums.CreditLeadStatusEnum;
 import com.appril.leads.repository.CreditLeadsRepository;
 import com.appril.leads.valueobj.LeadFollow;
 import com.appril.leads.valueobj.LostRecord;
@@ -70,7 +71,7 @@ public class CreditLeadsEntity extends Entity<Long> {
     /**
      * 商机阶段（1：未跟进，2：跟进中，3：赢单，4：输单）
      */
-    private Integer status;
+    private CreditLeadStatusEnum statusEnum;
 
     /**
      * 是否为本人的商机线索
@@ -80,7 +81,7 @@ public class CreditLeadsEntity extends Entity<Long> {
     /**
      * 输单记录（json）
      */
-//    private LostRecord loseRecord;
+    private LostRecord loseRecord;
 
     /**
      * 跟进记录
@@ -97,5 +98,10 @@ public class CreditLeadsEntity extends Entity<Long> {
     @Override
     protected DataRepository getRepository() {
         return ApplicationContextHelper.getBean(CreditLeadsRepository.class);
+    }
+
+    public List<LeadFollow> acquireLeadsFollows() {
+        CreditLeadsRepository repository = (CreditLeadsRepository)getRepository();
+       return repository.acquireLeadsFollows(globalId);
     }
 }

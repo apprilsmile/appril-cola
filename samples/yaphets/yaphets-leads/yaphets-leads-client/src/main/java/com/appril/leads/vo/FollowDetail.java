@@ -9,7 +9,7 @@ import lombok.Data;
  * @create 2021-06-17
  */
 @Data
-public class FollowDetailVo extends DTO {
+public class FollowDetail extends DTO {
 
     //跟进记录id
     private String id;
@@ -33,8 +33,5 @@ public class FollowDetailVo extends DTO {
      * 备注
      */
     private String remark;
-
-    //商机信息
-    private DetailLeadInfoVo leadInfo;
 
 }

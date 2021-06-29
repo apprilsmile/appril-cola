@@ -1,7 +1,7 @@
 package com.appril.channel.translator;
 
 import com.appril.channel.entity.CrmChannelInfo;
-import com.appril.channel.vo.ChannelInfo;
+import com.appril.channel.valueobj.ChannelInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

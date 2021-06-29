@@ -11,10 +11,11 @@ import com.appril.channel.mapper.CrmChannelInfoMapper;
 import com.appril.channel.model.ChannelEntity;
 import com.appril.channel.translator.ChannelContactTranslator;
 import com.appril.channel.translator.ChannelInfoTranslator;
+import com.appril.channel.valueobj.ChannelInfo;
 import com.appril.channel.vo.ChannelAddress;
-import com.appril.channel.vo.ChannelInfo;
 import com.appril.channel.vo.ChannelTagType;
 import com.appril.channel.vo.ContactInfo;
+import com.appril.channel.vo.query.ChannelDetailQuery;
 import com.appril.channel.vo.query.ChannelPageQuery;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -60,21 +61,7 @@ public class ChannelRepositoryImpl implements ChannelRepository {
         queryWrapper.lambda().eq(CrmChannelInfo::getDeleted, 0).eq(CrmChannelInfo::getGlobalId, globalId);
         CrmChannelInfo channelInfo = channelInfoMapper.selectOne(queryWrapper);
         if (channelInfo != null) {
-            channelEntity.setId(channelInfo.getId());
-            channelEntity.setGlobalId(channelInfo.getGlobalId());
-            String addressStr = channelInfo.getAddress();
-            if (StrUtil.isNotEmpty(addressStr)) {
-                ChannelAddress address = JSONObject.parseObject(addressStr, ChannelAddress.class);
-                channelEntity.setAddress(address);
-            }
-            channelEntity.setChannelName(channelInfo.getChannelName());
-            channelEntity.setCreditCode(channelInfo.getCreditCode());
-            channelEntity.setRegistered(RegisteredEnum.getByCode(channelInfo.getRegistered()));
-            String tagTypeStr = channelInfo.getTagType();
-            if (StrUtil.isNotEmpty(tagTypeStr)) {
-                List<ChannelTagType> tagType = JSONObject.parseArray(tagTypeStr, ChannelTagType.class);
-                channelEntity.setTagTypes(tagType);
-            }
+            this.buildChannelEntity(channelEntity,channelInfo);
         }
         return channelEntity;
     }
@@ -103,4 +90,48 @@ public class ChannelRepositoryImpl implements ChannelRepository {
         }
         return contactsInfos;
     }
+
+    @Override
+    public ChannelEntity getInfoByCondition(ChannelDetailQuery channelDetailQuery) {
+        ChannelEntity entity = new ChannelEntity();
+        QueryWrapper<CrmChannelInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(CrmChannelInfo::getDeleted,0);
+        String gid = channelDetailQuery.getGid();
+        String name = channelDetailQuery.getName();
+        if (StrUtil.isEmpty(gid)&&StrUtil.isEmpty(name)){
+            return null;
+        }
+        if (StrUtil.isNotEmpty(gid)){
+            queryWrapper.lambda().eq(CrmChannelInfo::getGlobalId,gid);
+        }
+        if(StrUtil.isNotEmpty(name)){
+            queryWrapper.lambda().like(CrmChannelInfo::getChannelName,name);
+
+        }
+        List<CrmChannelInfo> channelInfos = channelInfoMapper.selectList(queryWrapper);
+        if (CollectionUtil.isNotEmpty(channelInfos)){
+            CrmChannelInfo crmChannelInfo = channelInfos.get(0);
+            this.buildChannelEntity(entity,crmChannelInfo);
+        }
+        return entity;
+    }
+
+    private void buildChannelEntity(ChannelEntity channelEntity, CrmChannelInfo channelInfo) {
+        channelEntity.setId(channelInfo.getId());
+        channelEntity.setGlobalId(channelInfo.getGlobalId());
+        String addressStr = channelInfo.getAddress();
+        if (StrUtil.isNotEmpty(addressStr)) {
+            ChannelAddress address = JSONObject.parseObject(addressStr, ChannelAddress.class);
+            channelEntity.setAddress(address);
+        }
+        channelEntity.setChannelName(channelInfo.getChannelName());
+        channelEntity.setCreditCode(channelInfo.getCreditCode());
+        channelEntity.setRegistered(RegisteredEnum.getByCode(channelInfo.getRegistered()));
+        String tagTypeStr = channelInfo.getTagType();
+        if (StrUtil.isNotEmpty(tagTypeStr)) {
+            List<ChannelTagType> tagType = JSONObject.parseArray(tagTypeStr, ChannelTagType.class);
+            channelEntity.setTagTypes(tagType);
+        }
+    }
+
 }

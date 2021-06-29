@@ -1,24 +1,19 @@
 package com.appril.channel.vo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author appril
  * @date 2021/6/28 10:53
  */
 @Data
-public class ChannelInfo implements Serializable {
+public class ChannelInfoVo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    private Long id;
 
     /**
      * 全局id
@@ -35,15 +30,11 @@ public class ChannelInfo implements Serializable {
      */
     private String shortName;
 
-    /**
-     * 渠道类型模式： 1公司 2个人
-     */
-    private Integer modeType;
 
     /**
-     * 渠道类型标签,  json字符串[{code, name,sub_type:{code, name}},{code,name,sub_type:{code, name}},{code,name,sub_type:{code, name}}]
+     * 渠道类型标签
      */
-    private String tagType;
+    private List<String> tagTypes;
 
     /**
      * 经营范围json。1=重卡，2=轻卡。数据格式 [{code:,title:}]

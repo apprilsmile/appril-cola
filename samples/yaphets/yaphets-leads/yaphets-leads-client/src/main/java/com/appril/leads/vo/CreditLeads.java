@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class CreditLeadsVo extends DTO {
+public class CreditLeads extends DTO {
 
 
     /**
@@ -52,14 +52,8 @@ public class CreditLeadsVo extends DTO {
     private Integer status;
 
     /**
-     * 为跟进天数
+     * 输单原因
      */
-    private String notFolloweDay;
-
-    /**
-     * 是否为本人的商机线索
-     */
-    private boolean myselfFlag;
-
+    private LostReason lostReason;
 
 }

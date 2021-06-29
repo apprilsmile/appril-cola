@@ -9,7 +9,7 @@ import lombok.Data;
  * @create 2021-06-16
  */
 @Data
-public class DetailLostReasonVo extends DTO {
+public class LostReason extends DTO {
 
     /**
      * 输单类型/未追回原因
